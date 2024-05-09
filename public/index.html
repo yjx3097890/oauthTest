@@ -5,7 +5,17 @@
     <title>登录</title>
 </head>
 <body>
-<button>github 登录</button>
+<a href="https://github.com/login/oauth/authorize?client_id=Ov23ct9aUg0jw2c2r66v">
+    <button>github 登录</button>
+</a>
 <div id="user"></div>
 </body>
+<script>
+    const user = document.getElementById('user');
+    fetch('/user').then(res => res.json()).then(data => {
+        if (data) {
+            user.innerHTML = JSON.stringify(data);
+        }
+    });
+</script>
 </html>
